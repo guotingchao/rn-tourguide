@@ -76,7 +76,7 @@ export class SvgMask extends Component<Props, State> {
       },
       size: props.size,
       position: props.position,
-      opacity: new Animated.Value(0),
+      opacity: new Animated.Value(1),
       animation: new Animated.Value(0),
       previousPath: this.firstPath,
     }
@@ -89,7 +89,9 @@ export class SvgMask extends Component<Props, State> {
       prevProps.position !== this.props.position ||
       prevProps.size !== this.props.size
     ) {
-      this.animate()
+      this.setState({ previousPath: this.getPath() }, () => {
+        this.animate()
+      })
     }
   }
 
@@ -123,7 +125,7 @@ export class SvgMask extends Component<Props, State> {
   animationListener = () => {
     const d = this.getPath()
     this.rafID = requestAnimationFrame(() => {
-      if (this.mask && this.mask.current) {
+      if (this.mask?.current) {
         if (IS_WEB) {
           // @ts-ignore
           this.mask.current.setNativeProps({ d })
@@ -143,18 +145,21 @@ export class SvgMask extends Component<Props, State> {
         easing: this.props.easing,
         useNativeDriver: false,
       }),
+      Animated.timing(this.state.opacity, {
+        toValue: 1,
+        duration: this.props.animationDuration,
+        easing: this.props.easing,
+        useNativeDriver: true,
+      }),
     ]
-    // @ts-ignore
-    if (this.state.opacity._value !== 1) {
-      animations.push(
-        Animated.timing(this.state.opacity, {
-          toValue: 1,
-          duration: this.props.animationDuration,
-          easing: this.props.easing,
-          useNativeDriver: true,
-        }),
-      )
-    }
+    // if (this.state.opacity._value !== 1) {
+    //   animations.push(Animated.timing(this.state.opacity, {
+    //     toValue: 1,
+    //     duration: this.props.animationDuration,
+    //     easing: this.props.easing,
+    //     useNativeDriver: true,
+    //   }));
+    // }
     Animated.parallel(animations, { stopTogether: false }).start((result) => {
       if (result.finished) {
         this.setState({ previousPath: this.getPath() }, () => {

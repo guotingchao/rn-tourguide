@@ -1,8 +1,11 @@
 {
-  "name": "rn-tourguide",
-  "version": "3.3.2",
+  "name": "@cardbrother/rn-tourguide",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "3.3.3",
   "description": "Make an interactive step by step tour guide for your react-native app (a rewrite of react-native-copilot)",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "private": false,
   "scripts": {
@@ -24,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xcarpentier/rn-tourguide.git"
+    "url": "git+https://github.com/guotingchao/rn-tourguide.git"
   },
   "keywords": [
     "react-native",
@@ -34,12 +37,12 @@
     "intro.js",
     "intro"
   ],
-  "author": "Xavier Carpentier <xcapetir@gmail.com>",
+  "author": "guozichun <guotingchaopr@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xcarpentier/rn-tourguide/issues"
+    "url": "https://github.com/guotingchao/rn-tourguide/issues"
   },
-  "homepage": "https://xcarpentier.github.io/rn-tourguide/",
+  "homepage": "https://github.com/guotingchao/rn-tourguide/",
   "devDependencies": {
     "@types/hoist-non-react-statics": "3.3.1",
     "@types/jest": "25.2.3",
@@ -72,6 +75,7 @@
     }
   },
   "dependencies": {
+    "@cardbrother/rn-tourguide": "^3.3.3",
     "flubber": "~0.4.2",
     "hoist-non-react-statics": "~3.0.1",
     "lodash.clamp": "~4.0.3",

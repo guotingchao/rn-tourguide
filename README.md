@@ -1,5 +1,8 @@
 <h1 align="center">RN-TourGuide</h1>
 
+
+<h2>this fork fixed rn-0.76 background transparent issue</h2>
+
 <p align="center">
   A flexible <strong>tourguide</strong> for your react native app!
   <br/><small>🎉 Webable 🎉</small>
