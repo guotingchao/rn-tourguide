@@ -3,15 +3,15 @@ import {
   Animated,
   Dimensions,
   Easing,
-  type LayoutChangeEvent,
+  LayoutChangeEvent,
   Platform,
   Pressable,
-  type ScaledSize,
-  type StyleProp,
-  type ViewStyle,
+  ScaledSize,
+  StyleProp,
+  ViewStyle,
 } from 'react-native'
-import Svg, { type PathProps } from 'react-native-svg'
-import type { IStep, ValueXY } from '../types'
+import Svg, { PathProps } from 'react-native-svg'
+import { IStep, ValueXY } from '../types'
 import { svgMaskPathMorph } from '../utilities'
 import { AnimatedSvgPath } from './AnimatedPath'
 
