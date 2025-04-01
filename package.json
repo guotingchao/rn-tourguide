@@ -3,18 +3,18 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "3.3.3",
+  "version": "3.3.4",
   "description": "Make an interactive step by step tour guide for your react-native app (a rewrite of react-native-copilot)",
-  "main": "lib/index.js",
+  "main": "node_modules/expo/AppEntry.js",
   "types": "lib/index.d.ts",
   "private": false,
   "scripts": {
     "start": "yarn config:dev && expo start -c",
     "start:web": "yarn config:dev && expo start -c -w",
-    "test": "TZ=Europe/Paris jest --no-watchman",
-    "tsc": "node_modules/.bin/tsc --noEmit",
+    "test": "TZ=Asia/Shanghai jest --no-watchman",
+    "tsc": "node_modules/.bin/tsc ",
     "tsc:watch": "node_modules/.bin/tsc --noEmit --watch",
-    "build": "rm -rf lib/ && node_modules/.bin/tsc",
+    "build": "node_modules/.bin/tsc",
     "config:dev": "json -I -f package.json -e 'this.main=\"node_modules/expo/AppEntry.js\"'",
     "config:npm": "json -I -f package.json -e 'this.main=\"lib/index.js\"'",
     "lint": "tslint --project .",
@@ -75,7 +75,6 @@
     }
   },
   "dependencies": {
-    "@cardbrother/rn-tourguide": "^3.3.3",
     "flubber": "~0.4.2",
     "hoist-non-react-statics": "~3.0.1",
     "lodash.clamp": "~4.0.3",
